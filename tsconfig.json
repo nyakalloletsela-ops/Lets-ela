@@ -16,7 +16,9 @@
   "references": [
     { "path": "./packages/core" },
     { "path": "./packages/agents/prd" },
-    { "path": "./packages/agents/architecture" }
+    { "path": "./packages/agents/architecture" },
+    { "path": "./packages/file-generator" },
+    { "path": "./apps/builder-runtime" }
   ],
   "files": []
 }
