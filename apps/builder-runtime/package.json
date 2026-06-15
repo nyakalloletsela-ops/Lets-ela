@@ -1,0 +1,27 @@
+{
+  "name": "@letsela/builder-runtime",
+  "version": "1.0.0",
+  "description": "Lets'ela Main Orchestration Runtime",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsc --watch & node dist/index.js",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@letsela/core": "^1.0.0",
+    "@letsela/prd-agent": "^1.0.0",
+    "@letsela/architecture-agent": "^1.0.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/cors": "^2.8.17",
+    "@types/uuid": "^9.0.7",
+    "@types/node": "^20.11.0"
+  }
+}
