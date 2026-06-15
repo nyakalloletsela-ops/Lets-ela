@@ -13,6 +13,7 @@
     "@letsela/core": "^1.0.0",
     "@letsela/prd-agent": "^1.0.0",
     "@letsela/architecture-agent": "^1.0.0",
+    "@letsela/file-generator": "^1.0.0",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "cors": "^2.8.5",
