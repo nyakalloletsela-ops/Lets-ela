@@ -1,0 +1,23 @@
+{
+  "name": "letsela-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Letsela Contract-First AI Platform Factory",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "bootstrap": "npm install",
+    "build": "tsc -b",
+    "start": "node apps/builder-runtime/dist/index.js",
+    "dev": "tsc -b --watch",
+    "clean": "rm -rf packages/*/dist apps/*/dist generated-projects"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}
