@@ -14,7 +14,8 @@
     "resolveJsonModule": true
   },
   "references": [
-    { "path": "./packages/core" }
+    { "path": "./packages/core" },
+    { "path": "./packages/agents/prd" }
   ],
   "files": []
 }
