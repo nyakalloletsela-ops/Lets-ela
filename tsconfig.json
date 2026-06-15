@@ -15,7 +15,8 @@
   },
   "references": [
     { "path": "./packages/core" },
-    { "path": "./packages/agents/prd" }
+    { "path": "./packages/agents/prd" },
+    { "path": "./packages/agents/architecture" }
   ],
   "files": []
 }
