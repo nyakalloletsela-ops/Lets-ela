@@ -4,7 +4,7 @@ import { FileGeneratorEngine, GenerationContext } from '@letsela/file-generator'
 import { SessionManager } from './context-manager';
 
 export interface OrchestratorConfig {
-  openaiApiKey: string;
+  geminiApiKey: string;
   redisUrl?: string;
   outputBaseDir?: string;
 }
@@ -15,21 +15,20 @@ export class BuildOrchestrator {
   private architectureAgent: ArchitectureAgent;
   private fileGenerator: FileGeneratorEngine;
   private outputBaseDir: string;
-  private openaiApiKey: string;
 
   constructor(config: OrchestratorConfig) {
-    this.openaiApiKey = config.openaiApiKey;
     this.sessionManager = new SessionManager(config.redisUrl);
     this.outputBaseDir = config.outputBaseDir || './generated-projects';
     
+    // Initialize agents with Gemini
     this.prdAgent = new PRDAgent({
-      openaiApiKey: config.openaiApiKey,
+      geminiApiKey: config.geminiApiKey,
       contextStore: this.sessionManager.getContextStore(),
       maxRetries: 2
     });
     
     this.architectureAgent = new ArchitectureAgent({
-      openaiApiKey: config.openaiApiKey,
+      geminiApiKey: config.geminiApiKey,
       contextStore: this.sessionManager.getContextStore(),
       maxRetries: 2
     });
@@ -37,6 +36,9 @@ export class BuildOrchestrator {
     this.fileGenerator = new FileGeneratorEngine();
   }
 
+  /**
+   * Start a full build pipeline: PRD → Architecture → Files
+   */
   async startBuild(prompt: string, existingProjectId?: string): Promise<string> {
     const session = this.sessionManager.createSession(existingProjectId);
     
@@ -99,6 +101,9 @@ export class BuildOrchestrator {
     }
   }
 
+  /**
+   * Get build status and artifacts
+   */
   async getBuildStatus(sessionId: string) {
     const session = this.sessionManager.getSession(sessionId);
     if (!session) {

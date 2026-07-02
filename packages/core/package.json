@@ -8,6 +8,7 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.3.0",
     "ajv": "^8.12.0",
     "ajv-formats": "^2.1.1",
     "nanoid": "^5.0.4",
