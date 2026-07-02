@@ -1,5 +1,5 @@
 {
-  "name": "@letsela/agent-prd",
+  "name": "@letsela/prd-agent",
   "version": "1.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -8,8 +8,7 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@letsela/core": "file:../../core",
-    "openai": "^4.24.1"
+    "@letsela/core": "^1.0.0"
   },
   "devDependencies": {
     "@types/node": "^20.11.0"
