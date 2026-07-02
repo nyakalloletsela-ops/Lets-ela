@@ -6,11 +6,12 @@ import { BuildOrchestrator } from './orchestrator';
 dotenv.config();
 
 const PORT = process.env.PORT || 3000;
-const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const REDIS_URL = process.env.REDIS_URL;
 
-if (!OPENAI_API_KEY) {
-  console.error('FATAL: OPENAI_API_KEY environment variable is required');
+if (!GEMINI_API_KEY) {
+  console.error('FATAL: GEMINI_API_KEY environment variable is required');
+  console.error('Get your key from: https://ai.google.dev/');
   process.exit(1);
 }
 
@@ -19,13 +20,14 @@ async function main() {
   console.log('║                                                       ║');
   console.log('║     LETS\'ELA BUILDER RUNTIME v1.0                     ║');
   console.log('║     Contract-First AI Platform Factory                ║');
+  console.log('║     Powered by Google Gemini                          ║');
   console.log('║                                                       ║');
   console.log('╚═══════════════════════════════════════════════════════╝');
   console.log('');
   
-  console.log('📦 Initializing orchestrator...');
+  console.log('📦 Initializing orchestrator with Gemini API...');
   const orchestrator = new BuildOrchestrator({
-    openaiApiKey: OPENAI_API_KEY,
+    geminiApiKey: GEMINI_API_KEY,
     redisUrl: REDIS_URL,
     outputBaseDir: process.env.OUTPUT_DIR || './generated-projects'
   });
