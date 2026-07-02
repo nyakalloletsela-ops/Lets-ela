@@ -9,6 +9,10 @@ export type { ValidationResult, ValidationErrorDetail } from './validation/engin
 export { prdSchema } from './schemas/prd.schema';
 export { architectureSchema } from './schemas/architecture.schema';
 
+// LLM - Gemini
+export { GeminiClient, createGeminiClient } from './llm';
+export type { GeminiClientConfig, ChatMessage, StructuredOutput } from './llm';
+
 // Types
 export interface PRDContract {
   projectName: string;
